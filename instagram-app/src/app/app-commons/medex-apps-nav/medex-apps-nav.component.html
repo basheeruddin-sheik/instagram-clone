@@ -1,0 +1,11 @@
+<div class="apps-nav-container" fxLayout="column" *ngIf="preferences.getPreference(AppsPreferenceType) as preference">
+    <div class="mat-headline">Apps</div>
+    <div class="app-card-container"
+         *ngFor="let app of preference?.preferenceInfo?.apps"
+         (click)="openUrl(app.url)"
+         fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="mat-subheading-1">{{app.title}}</div>
+      <div><mat-icon>navigate_next</mat-icon></div>
+    </div>
+  </div>
+  

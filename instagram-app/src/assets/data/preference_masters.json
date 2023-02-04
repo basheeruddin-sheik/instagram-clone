@@ -1,0 +1,318 @@
+{
+  "preferences": [
+    {
+      "groupTitle": "Account",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "ACCOUNT_RESET_PASSWORD",
+          "preferenceTitle": "Reset Password"
+        },
+        {
+          "preferenceId": "ACCOUNT_MOBILE_NUMBER",
+          "preferenceTitle": "Mobile Number"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Doctor Profile",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "DOCTOR_PROFILE",
+          "preferenceTitle": "Doctor Profile"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Templates",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "TEMPLATES_PRESCRIPTION",
+          "preferenceTitle": "Prescription"
+        },
+        {
+          "preferenceId": "TEMPLATES_NOTES",
+          "preferenceTitle": "Notes"
+        },
+        {
+          "preferenceId": "TEMPLATES_TASKS",
+          "preferenceTitle": "Tasks"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Availability",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "AVAILABILITY",
+          "preferenceTitle": "Availability"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Charts",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "CHARTS",
+          "preferenceTitle": "Charts Section"
+        },
+        {
+          "preferenceId": "CHARTS_ENCOUNTERS",
+          "preferenceTitle": "Charts Encounters"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Masters",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "MASTERS_MEDICATIONS",
+          "preferenceTitle": "Medications"
+        },
+        {
+          "preferenceId": "MASTERS_INVESTIGATIONS",
+          "preferenceTitle": "Investigations"
+        },
+        {
+          "preferenceId": "MASTERS_IV_FLUIDS",
+          "preferenceTitle": "IV Fluids"
+        }
+      ]
+    },
+    {
+      "groupTitle": "My Documents",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "MY_DOCUMENTS",
+          "preferenceTitle": "My Documents"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Alerts",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "Alerts",
+          "preferenceTitle": "Alerts Section"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Support",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "SUPPORT",
+          "preferenceTitle": "Support Preferences"
+        },
+        {
+          "preferenceId": "SUPPORT_EMAIL",
+          "preferenceTitle": "Email Support"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Assessments",
+      "groupSubtitle": "Score calculated based on Vitals, readings and clinical observations",
+      "preferences": [
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_NEWS",
+          "preferenceTitle": "NEWS"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_NEWS_II",
+          "preferenceTitle": "NEWS_II"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_SOFA",
+          "preferenceTitle": "SOFA"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_QSOFA",
+          "preferenceTitle": "qSOFA"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_APACHE_II",
+          "preferenceTitle": "APACHE_II"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_EGFR",
+          "preferenceTitle": "EGFR"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_ASSESSMENTS_GCS",
+          "preferenceTitle": "GCS"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Summary",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "SUMMARY",
+          "preferenceTitle": "Summary"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Quick Add",
+      "groupSubtitle": "Quickly add notes, medications, tasks, investigations, and documents in a single pane",
+      "preferences": [
+        {
+          "preferenceId": "MEDICAL_RECORD_QUICK_ADD",
+          "preferenceTitle": "Quick Add"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Devices",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "MEDICAL_RECORD_CONNECTED_DEVICES",
+          "preferenceTitle": "Devices"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Readings",
+      "groupSubtitle": "Trends and Timelines for Vitals from connected devices or manually entered",
+      "preferences": [
+        {
+          "preferenceId": "MEDICAL_RECORD_READINGS",
+          "preferenceTitle": "Readings"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_READINGS_V2",
+          "preferenceTitle": "Readings_V2"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Communication Center",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "COMMUNICATION_CENTER",
+          "preferenceTitle": "Communication Preferences"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_CISCO_WEBEX",
+          "preferenceTitle": "Cisco Webex"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_MEDEX_VIDEO",
+          "preferenceTitle": "MedeX Video"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_AIRTELIQ_TELEPHONY",
+          "preferenceTitle": "AirtelIQ Telephony"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_BEDSIDE_MONITOR_SUBSCRIBER",
+          "preferenceTitle": "Subscribe Bedside Monitor Stream"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_BEDSIDE_MONITOR_PUBLISHER",
+          "preferenceTitle": "Publish Bedside Monitor Stream"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_PTZ_CAMERA_SUBSCRIBER",
+          "preferenceTitle": "Subscribe PTZ Camera Stream"
+        },
+        {
+          "preferenceId": "COMMUNICATION_CENTER_PTZ_CAMERA_PUBLISHER",
+          "preferenceTitle": "Publish PTZ Camera Stream"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Tags",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "TAGS",
+          "preferenceTitle": "Tags"
+        }
+      ]
+    },
+    {
+      "groupTitle": "FAVOURITES",
+      "groupSubtitle": "",
+      "preferences": [
+        {
+          "preferenceId": "FAVOURITES",
+          "preferenceTitle": "Favourites"
+        },
+        {
+          "preferenceId": "FAVOURITES_MEDICATION",
+          "preferenceTitle": "Favourite Medications"
+        }
+      ]
+    },
+    {
+      "groupTitle": "Notes",
+      "groupSubtitle": "Free form notes or structured notes",
+      "preferences": [
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES",
+          "preferenceTitle": "Notes"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES_ADVICE",
+          "preferenceTitle": "Advice"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES_TASKS",
+          "preferenceTitle": "Tasks"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES_DOCUMENTS",
+          "preferenceTitle": "Documents"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES_HEMODYNAMICS",
+          "preferenceTitle": "Hemodynamics"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES_VENTILATOR",
+          "preferenceTitle": "Ventilator"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_NOTES_ARTERIAL_BLOOD_GAS",
+          "preferenceTitle": "Arterial Blood Gas"
+        }
+      ]
+    },
+    {
+      "groupTitle": "ICU Medical Record",
+      "groupSubtitle": "Trends and Timelines for Vitals from connected devices or manually entered",
+      "preferences": [
+        {
+          "preferenceId": "MEDICAL_RECORD_MEDICATIONS",
+          "preferenceTitle": "Medication"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_INVESTIGATIONS",
+          "preferenceTitle": "Investigations"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_FLUIDS",
+          "preferenceTitle": "Fluids"
+        },
+        {
+          "preferenceId": "MEDICAL_RECORD_PAST_HISTORY",
+          "preferenceTitle": "Past History"
+        }
+      ]
+    }
+  ]
+}

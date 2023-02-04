@@ -1,0 +1,37 @@
+.main-container {
+    height: 100vh;
+     overflow-y: hidden;
+    //background: $shade-background;
+  }
+
+  #top-nav {
+    background: #ffffff;
+    //border-bottom: solid 1px $shade-border;
+    padding: 0 16px 0 16px;
+  }
+
+  #dashboard {
+    //background: $shade-background;
+    height: calc(100vh - 48px);
+    // width: calc(100vw);
+    overflow-y: scroll;
+  }
+.dashboard-dark, .dashboard{
+  height: calc(100vh - 48px);
+  // width: calc(100vw);
+  overflow-y: scroll;
+}
+  #notification-portal {
+    position: fixed;
+    top: 80px;
+    right: 16px;
+    z-index: 100;
+    width: 320px;
+    background: #ffffff;
+  }
+  .side-nav{
+    background: #ffffff !important;
+    width: 64px;
+    height: calc(100vh - 48px);
+    overflow: scroll;
+  }

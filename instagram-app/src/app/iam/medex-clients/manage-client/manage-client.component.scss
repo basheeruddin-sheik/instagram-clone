@@ -1,0 +1,28 @@
+.header{
+    background-color:#e6f1ff;
+    top: 0;
+    position: sticky;
+    z-index: 30;
+  }
+
+  :host ::ng-deep .mat-tab-header {
+    top: 9.2rem;
+    z-index: 20; 
+    position: sticky;
+    position: -webkit-sticky; /* macOS/iOS Safari */    
+    background-color: white;
+}
+
+.heading {
+    text-align: center;
+    justify-content: center;
+}
+
+.info {
+    padding: 16px;
+}
+
+.align {
+    padding: 16px;
+    font-size: large;
+}

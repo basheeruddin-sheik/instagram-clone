@@ -1,0 +1,97 @@
+<div class="table-container">
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+    <div fxLayout="column" class="onboarding-header mat-elevation-z1">
+        <div class="top" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+                <mat-icon class="material-icons-outlined">how_to_reg</mat-icon>
+                <div fxLayout="row" fxFlex fxLayoutGap="8px" fxLayoutAlign="start end">
+                    <div class="text-5xl">{{totalLength}}</div>
+                    <div class="text-xl">Clients</div>
+                </div>
+            </div>
+            <div>
+                <button class="add_button" mat-raised-button color="primary" (click)="add()">
+                    <mat-icon class="add_icon">add</mat-icon>Add Client
+                </button>
+            </div>
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <section fxLayoutAlign="start center">
+                <div fxLayoutAlign="start center" fxLayoutGap="20px" fxFlex>
+                    <mat-form-field appearance="outline" class="search"  style="width: 20rem;">
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Search by Client Name/ID"
+                            [formControl]="searchForEmail" />
+                        <span matSuffix>
+                            <mat-icon>search</mat-icon>
+                        </span>
+                    </mat-form-field>
+                </div>
+            </section>
+
+            <div >
+                <mat-paginator class="paginator-container" [pageSizeOptions]="[10, 15, 30, 50]" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+
+
+    <div fxLayout="column">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="sNo">
+                <mat-header-cell *matHeaderCellDef> S.No</mat-header-cell>
+                <mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="clientType">
+                <mat-header-cell *matHeaderCellDef> Client Type</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.clientType}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="clientName">
+                <mat-header-cell *matHeaderCellDef> Client Name</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.clientName}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="clientId">
+                <mat-header-cell *matHeaderCellDef >Client Id</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.clientId}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="expiresIn">
+                <mat-header-cell *matHeaderCellDef>Expires In</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.accessTokenExpiresIn}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell style="display: flex; align-items: center; justify-content: center;" *matHeaderCellDef>Actions
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="margin-left: 18px;">
+                  <div class=" flex items-start justify-center">
+                    <button mat-icon-button matTooltip="Manage"
+                      style="width: 33px; height: 33px; display: flex; align-items: center; justify-content: center; margin-top: 4px;"
+                      (click)="manageClient(element?.clientId)">
+                      <mat-icon class="text-2xl material-icons-outlined">arrow_circle_right</mat-icon>
+                    </button>
+                    <!-- <button mat-icon-button matTooltip="Edit"
+                      style="width: 33px; height: 33px; display: flex; align-items: center; justify-content: center; margin-top: 4px;"
+                      (click)="add(element)">
+                      <mat-icon class="text-2xl">edit</mat-icon>
+                    </button> -->
+                    <button mat-icon-button matTooltip="Delete" class="deleteColor"
+                      style="width: 33px; height: 33px; display: flex; align-items: center; justify-content: center; margin-top: 4px;"
+                      (click)="deleteClient(element)">
+                      <mat-icon class="text-2xl">delete</mat-icon>
+                    </button>
+                  </div>
+                </mat-cell>
+              </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </div>
+</div>

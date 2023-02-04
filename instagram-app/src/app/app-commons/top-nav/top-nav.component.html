@@ -1,0 +1,151 @@
+<div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center" id="top-nav-container" class="border-b h-12">
+    <div class="apps-icon">
+        <button mat-icon-button color="#039be5" (click)="openAppSelector()">
+            <mat-icon>apps</mat-icon>
+        </button>
+    </div>
+<!--    <div class="logo" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">-->
+<!--        <img src="/assets/images/hng-logo.png" id="logo-icon" (click)="dashboard()">-->
+<!--    </div>-->
+
+    <div fxFlex>
+
+    </div>
+
+    <!--    <div fxFlex>&nbsp;</div>-->
+
+
+    <!--    <button mat-icon-button (click)="startIntro()" *ngIf="userProfile">-->
+    <!--        <mat-icon class="material-icons-outlined">slideshow</mat-icon>-->
+    <!--    </button>-->
+
+
+    <!--    <button mat-icon-button (click)="openSupport()" *ngIf="userProfile">-->
+    <!--        <mat-icon class="material-icons-outlined">help_outline</mat-icon>-->
+    <!--    </button>-->
+
+
+    <!--    <button mat-icon-button *ngIf="userProfile">-->
+    <!--        <mat-icon class="material-icons-outlined" [matBadge]="todos.length" [matMenuTriggerFor]="notificationsMenu">-->
+    <!--            notifications</mat-icon>-->
+    <!--    </button>-->
+    <mat-menu #notificationsMenu="matMenu">
+        <ng-template matMenuContent>
+            <div fxLayout="column" fxLayoutAlign="start strech" fxLayoutGap="8px" id="notifications-menu">
+
+                <div class="mat-body-2 heading">Notifications</div>
+                <mat-divider></mat-divider>
+                <div class="notification-list">
+                    <div *ngFor="let todo of todos; let last=last" fxLayoutAlign="start stretch" fxLayout="column"
+                        fxLayoutGap="8px">
+                        <div class="todoItem">{{todo.description}}</div>
+                        <!--                        <button mat-icon-button color="primary" (click)="deleteNotice(todo.text)" aria-label="Delete">-->
+                        <!--                            <mat-icon>delete_forever</mat-icon>-->
+                        <!--                        </button>-->
+                        <div fxLayout="row" fxLayoutAlign="end center">
+                            <button mat-flat-button color="primary" (click)="openAppointment(todo.appointmentId)"
+                                aria-label="Delete">
+                                View Now
+                            </button>
+                        </div>
+                        <mat-divider *ngIf="!last"></mat-divider>
+                    </div>
+                </div>
+
+            </div>
+            <mat-divider></mat-divider>
+            <div fxLayoutAlign="center center">
+                <button mat-flat-button class="mat-caption">View All Notifications</button>
+            </div>
+        </ng-template>
+    </mat-menu>
+
+    <div class="account-button">
+        <button mat-icon-button fxFlexAlign="right" fxLayout="row" fxLayoutAlign="start center"
+            [matMenuTriggerFor]="appMenu" *ngIf="userProfile">
+            <img class="mat-elevation-z2" id="profile-img" [src]="getProfilePicture(userProfile.emailHash)">
+            <!--        <span class="mat-body-1">{{userProfile.name}}</span>-->
+            <!--        <mat-icon>keyboard_arrow_down</mat-icon>-->
+        </button>
+    </div>
+    <mat-menu #appMenu="matMenu">
+        <ng-template matMenuContent *ngIf="medeAuth.userProfile$|async as userProfile">
+            <div fxLayout="column" fxLayoutGap="16px">
+                <!--                <div class="manage-account-button">-->
+                <!--                    <button mat-stroked-button class="full-width-btn" (click)="navigateToDoctorProfile()">Manage My Account</button>-->
+                <!--                </div>-->
+
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" id="app-menu">
+                    <img [src]="getProfilePicture(userProfile.emailHash)" id="profile-img-big">
+                    <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="6px">
+                        <div class="mat-body-1">{{userProfile.email}}</div>
+                        <div class="mat-caption" *ngFor="let role of userProfile['https://medeintegra.app/roles']">
+                            {{role | titlecase}}</div>
+                        <div class="mat-caption" *ngIf="facility">{{facility?.facilityName | titlecase}}</div>
+                    </div>
+                </div>
+
+
+                <!--                <div class="row" *ngIf="profileJson">-->
+                <!--                    <pre class="rounded"><code class="json">{{profileJson}}</code></pre>-->
+                <!--                </div>-->
+
+                <!-- <mat-divider></mat-divider> -->
+
+                <div *ngIf="role==='paramedic'">
+                    <div fxLayout="column" fxLayoutAlign="center center" class="manage-account-button">
+                        <button mat-raised-button color="primary" (click)="profile()" class="full-width-btn">
+                            <mat-icon>person</mat-icon>
+                            My Profile
+                        </button>
+                    </div>
+                </div>
+                <!--<div *ngIf="role==='doctor'">
+                    <div fxLayout="column" fxLayoutAlign="center center" class="manage-account-button">
+                        <button mat-raised-button color="primary" (click)="viewSettings()" class="full-width-btn">
+                            <mat-icon>medex-preferences</mat-icon>
+                            Settings
+                        </button>
+                    </div>
+                </div> -->
+                <!-- <div (click)="$event.stopPropagation();" fxLayout="column" fxLayoutAlign="center center"
+                    class="manage-account-button" *ngIf="role==='doctor' && facilities && facilities?.length > 0">
+                    <mat-form-field class="full-width-btn" appearance="outline">
+                        <mat-label>Facility</mat-label>
+                        <mat-select [formControl]="facilityForm" placeholder="Facility">
+                            <mat-option *ngFor="let facility of facilities" [value]="facility">
+                                {{facility?.facilityName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div> -->
+                <div fxLayout="column" fxLayoutAlign="center center" class="manage-account-button">
+                    <button mat-raised-button color="warn" (click)="medeAuth.logout()" class="full-width-btn">
+                        <mat-icon>power_settings_new</mat-icon>
+                        Logout
+                    </button>
+                </div>
+
+                <!-- <div *ngIf="role==='doctor'">
+                    <div fxLayout="column" fxLayoutAlign="center center" class="manage-account-button">
+                        <button mat-stroked-button color="primary" (click)="viewProfile()" class="full-width-btn">
+                            <mat-icon>person</mat-icon>
+                            My Profile
+                        </button>
+
+                    </div>
+
+                </div> -->
+
+                <mat-divider></mat-divider>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <!-- <button mat-flat-button class="mat-caption">Privacy Policy & Terms</button> -->
+                    <div class="mat-caption">Privacy Policy & Terms</div>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <div class="mat-caption">Version: {{appVersion}}</div>
+                </div>
+            </div>
+        </ng-template>
+    </mat-menu>
+</div>

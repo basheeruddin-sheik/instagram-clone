@@ -1,0 +1,7 @@
+<div fxLayout="column" fxLayoutGap="16px" class="" fxLayoutAlign="start center">
+  <div *ngFor="let scope of scopes">
+    <button mat-icon-button matTooltip="{{getTooltipForScope(scope)}}" [routerLink]="getrouterLinkForScope(scope)">
+      <mat-icon class="material-icons-outlined">{{getMatIconNameForScope(scope)}}</mat-icon>
+    </button>
+  </div>
+</div>
