@@ -7,8 +7,8 @@ import { InterceptorService } from './mede-auth/mede-auth.interceptor';
 
 const routes: Routes = [
   {
-    path: "auth",
-    loadChildren: () => import("./mede-auth/mede-auth.module").then(m => m.MedeAuthModule)
+    path: "",
+    loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
   },
   {
     path: "",

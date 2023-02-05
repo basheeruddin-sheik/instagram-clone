@@ -20,4 +20,4 @@ import { AuthRoutingModule } from './mede-auth-routing.module';
     HttpClient
   ]
 })
-export class MedeAuthModule { }
+export class AuthModule { }

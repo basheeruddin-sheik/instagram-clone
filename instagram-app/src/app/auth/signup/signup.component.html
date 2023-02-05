@@ -1,0 +1,39 @@
+<main class="bg-gray-50 h-screen">
+    <div class="page">
+        <div class="header">
+            <div class="logo"></div>
+            <p class="message">Sign up to see photos and videos from your friends.</p>
+            <button><i class="fab fa-facebook-square"></i> Log in with Google</button>
+            <div>
+                <hr>
+                <p>OR</p>
+                <hr>
+            </div>
+        </div>
+        <div class="container">
+            <form >
+                <input type="text" placeholder="Mobile Number or Email">
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button>Sign up</button>
+            </form>
+
+            <ul>
+                <li>By signing up, you agree to our</li>
+                <li><a >Terms</a></li>
+                <li><a >Data Policy</a></li>
+                <li>and</li>
+                <li><a >Cookies Policy</a> .</li>
+            </ul>
+        </div>
+    </div>
+    <div class="option">
+        <p>Have an account? <a [routerLink]="['']">Log in</a></p>
+    </div>
+    <!-- <div class="otherapps">
+      <p>Get the app.</p>
+      <button type="button"><i class="fab fa-apple"></i> App Store</button>
+      <button type="button"><i class="fab fa-google-play"></i> Google Play</button>
+    </div> -->
+</main>

@@ -7,6 +7,7 @@ import { MedexMaterialModule } from './app-ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppCommonsModule } from './app-commons/app-commons.module';
 import { MedexUtilitiesModule } from './medex-utilities/medex-utilities.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MedexUtilitiesModule } from './medex-utilities/medex-utilities.module';
     MedexMaterialModule,
     HttpClientModule,
     AppCommonsModule,
-    MedexUtilitiesModule
+    MedexUtilitiesModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
