@@ -1,13 +1,13 @@
 import {HttpException, HttpStatus, Injectable, NestMiddleware} from '@nestjs/common';
 
-import {MedeAuthJwtService} from "./mede-jwt.service";
+import {AuthJwtService} from "./jwt.service";
 import * as moment from "moment";
 
 @Injectable()
-export class MedeAuthMiddleware implements NestMiddleware {
+export class AuthMiddleware implements NestMiddleware {
 
     constructor(
-       private medeAuthJwt: MedeAuthJwtService
+       private medeAuthJwt: AuthJwtService
     ) {}
 
     async use(req: any, res: any, next: () => void) {
