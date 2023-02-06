@@ -24,4 +24,8 @@ export class UsersService {
       map((res: any) => res.user)
     )
   }
+
+  login(credentials: User) {
+    return this.http.post(environment.url + environment.users.login, credentials)
+  }
 }

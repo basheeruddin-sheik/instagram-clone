@@ -12,7 +12,8 @@ export const environment = {
   url: "http://localhost:8000",
   users: {
     checkUsernameAvailability: "/users/username/check/",
-    createUser: "/users/create"
+    createUser: "/users/create",
+    login: "/users/login"
   },
 
   medexIam: {

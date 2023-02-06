@@ -15,11 +15,10 @@ export class SignupComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private snackBar: MatSnackBar,
-    private router: Router,
-    private activeRoute: ActivatedRoute
+    private router: Router
   ) {}
 
-  logInFormGroup = new FormGroup({
+  signUpFormGroup = new FormGroup({
     emailOrMobile: new UntypedFormControl("", [Validators.required]),
     fullName: new UntypedFormControl("", [Validators.required]),
     username: new UntypedFormControl("", [Validators.required]),
@@ -32,15 +31,15 @@ export class SignupComponent implements OnInit {
   isPasswordValid: boolean = false;
 
   ngOnInit(): void {
-    this.logInFormGroup.get("emailOrMobile")?.valueChanges.subscribe((value: any) => {      
+    this.signUpFormGroup.get("emailOrMobile")?.valueChanges.subscribe((value: any) => {      
       this.isEmailOrMobileValid =  (!isNaN(value) && value.length === 10) || (value.match(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/));
     })
 
-    this.logInFormGroup.get("fullName")?.valueChanges.subscribe((value: any) => {      
+    this.signUpFormGroup.get("fullName")?.valueChanges.subscribe((value: any) => {      
       this.isFullNameValid = value.match(/^[a-zA-Z\\ ]*$/) && value?.length>=3;
     })
 
-    this.logInFormGroup.get("username")?.valueChanges.pipe(
+    this.signUpFormGroup.get("username")?.valueChanges.pipe(
       debounceTime(300),
       map((username: string) => {
         this.usersService.checkUserAvailability(username).subscribe((isUserNameAvailable: any) => {
@@ -50,13 +49,13 @@ export class SignupComponent implements OnInit {
       })
     ).subscribe()
 
-    this.logInFormGroup.get("password")?.valueChanges.subscribe((value: any) => {   
+    this.signUpFormGroup.get("password")?.valueChanges.subscribe((value: any) => {   
       this.isPasswordValid = value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,15}$/);
     })
   }
 
   create() {
-    if(this.logInFormGroup.invalid) {
+    if(this.signUpFormGroup.invalid) {
       return this.snackBar.open("Please enter all details", 'Done', {
         duration: 3000,
         verticalPosition: "top",
@@ -71,18 +70,18 @@ export class SignupComponent implements OnInit {
       })
     }
 
-    let body: any = this.logInFormGroup.value;
+    let body: any = this.signUpFormGroup.value;
 
-    if(this.logInFormGroup.get("emailOrMobile")?.value?.includes("@")) {
-      body.email = this.logInFormGroup.get("emailOrMobile")?.value
+    if(this.signUpFormGroup.get("emailOrMobile")?.value?.includes("@")) {
+      body.email = this.signUpFormGroup.get("emailOrMobile")?.value
     }
     else {
-      body.mobile = this.logInFormGroup.get("emailOrMobile")?.value
+      body.mobile = this.signUpFormGroup.get("emailOrMobile")?.value
     }
 
     delete body.emailOrMobile;
 
-    this.usersService.createUser(this.logInFormGroup.value).subscribe((user: any) => {
+    this.usersService.createUser(this.signUpFormGroup.value).subscribe((user: any) => {
       this.router.navigate(["login"])
     })
   }

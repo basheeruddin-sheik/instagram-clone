@@ -11,14 +11,14 @@
             </div>
         </div>
         <div class="container">
-            <form [formGroup]="logInFormGroup">
+            <form [formGroup]="signUpFormGroup">
                 <div class="input-wrapper w-full">
                     <input type="text" formControlName="emailOrMobile" placeholder="Mobile Number or Email">
-                    <label *ngIf="isEmailOrMobileValid && logInFormGroup.get('emailOrMobile')?.value?.length"
+                    <label *ngIf="isEmailOrMobileValid && signUpFormGroup.get('emailOrMobile')?.value?.length"
                         class="input-icon-valid">
                         <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
                     </label>
-                    <label *ngIf="!isEmailOrMobileValid && logInFormGroup.get('emailOrMobile')?.value?.length"
+                    <label *ngIf="!isEmailOrMobileValid && signUpFormGroup.get('emailOrMobile')?.value?.length"
                         class="input-icon-invalid cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="right">
                         <div class="group relative inline-block">
                             <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
@@ -34,11 +34,11 @@
                 </div>
                 <div class="input-wrapper w-full">
                     <input type="text" formControlName="fullName" placeholder="Full Name">
-                    <label *ngIf="isFullNameValid && logInFormGroup.get('fullName')?.value?.length"
+                    <label *ngIf="isFullNameValid && signUpFormGroup.get('fullName')?.value?.length"
                         class="input-icon-valid">
                         <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
                     </label>
-                    <label *ngIf="!isFullNameValid && logInFormGroup.get('fullName')?.value?.length"
+                    <label *ngIf="!isFullNameValid && signUpFormGroup.get('fullName')?.value?.length"
                         class="input-icon-invalid cursor-pointer">
                         <div class="group relative inline-block">
                             <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
@@ -54,11 +54,11 @@
                 </div>
                 <div class="input-wrapper w-full">
                     <input type="text" formControlName="username" placeholder="Username">
-                    <label *ngIf="isUsernameValid && logInFormGroup.get('username')?.value?.length"
+                    <label *ngIf="isUsernameValid && signUpFormGroup.get('username')?.value?.length"
                         class="input-icon-valid cursor-pointer">
                         <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
                     </label>
-                    <label *ngIf="!isUsernameValid && logInFormGroup.get('username')?.value?.length"
+                    <label *ngIf="!isUsernameValid && signUpFormGroup.get('username')?.value?.length"
                         class="input-icon-invalid">
                         <div class="group relative inline-block">
                             <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
@@ -74,11 +74,11 @@
                 </div>
                 <div class="input-wrapper w-full">
                     <input type="password" formControlName="password" placeholder="Password">
-                    <label *ngIf="isPasswordValid && logInFormGroup.get('password')?.value?.length"
+                    <label *ngIf="isPasswordValid && signUpFormGroup.get('password')?.value?.length"
                         class="input-icon-valid">
                         <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
                     </label>
-                    <label *ngIf="!isPasswordValid && logInFormGroup.get('password')?.value?.length"
+                    <label *ngIf="!isPasswordValid && signUpFormGroup.get('password')?.value?.length"
                         class="input-icon-invalid cursor-pointer">
                         <div class="group relative inline-block">
                             <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
