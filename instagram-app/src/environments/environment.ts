@@ -9,6 +9,12 @@ export const environment = {
     CONNECTION: "MEDEX-PLAY-DB",
   },
 
+  url: "http://localhost:8000",
+  users: {
+    checkUsernameAvailability: "/users/username/check/",
+    createUser: "/users/create"
+  },
+
   medexIam: {
     url: "https://iam.play.medeintegra.dev",
     // url: "http://localhost:2020",

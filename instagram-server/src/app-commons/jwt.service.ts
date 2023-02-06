@@ -73,7 +73,7 @@ export class AuthJwtService {
 
     async getToken(user: User) {
         return await jwt.sign({
-            user: user.username
+            username: user.username
         }, process.env.JWT_SECRET, {
             expiresIn: '24h'
         });

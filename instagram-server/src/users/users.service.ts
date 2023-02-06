@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { MongoService } from 'src/app-commons/medex-mongo.service';
 import { User } from './users.model';
-import bcrypt from 'bcrypt-nodejs';
 import * as moment from "moment";
+import * as bcrypt from "bcrypt";
 
 @Injectable()
 export class UsersService {
@@ -20,9 +20,8 @@ export class UsersService {
     }
 
     async createUser(user: User) {
-        const hashedPassword = bcrypt.hashSync(user.password);
+        const hashedPassword = await bcrypt.hash(user.password, 10);
 
-        delete user.password;
         user.password = hashedPassword;
         user.metaInfo = {
             createdAt: moment().unix()
@@ -33,6 +32,6 @@ export class UsersService {
     }
 
     async checkPassword(userPassword: string, loginPassword: string) {
-        return await bcrypt.compareSync(userPassword, loginPassword);
+        return await bcrypt.compare(loginPassword, userPassword);
     }
 }

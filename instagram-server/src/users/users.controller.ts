@@ -1,4 +1,4 @@
-import { Body, Controller, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthJwtService } from 'src/app-commons/jwt.service';
 import { User } from './users.model';
@@ -13,13 +13,13 @@ export class UsersController {
         private jwtService: AuthJwtService
     ) { }
 
-    @Post("username/check/:username")
+    @Get("username/check/:username")
     async getUser(@Param("username") username: string) {
         try {
             const user = await this.usersService.getUser(username);
             return {
                 code: 1,
-                isUserNameAvailable: user ? true : false,
+                isUserNameAvailable: user ? false : true,
             }
         } catch (error) {
             throw new HttpException("Unable check username availability", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -35,6 +35,7 @@ export class UsersController {
                 user: savedUser
             }
         } catch (error) {
+            console.log(error)
             throw new HttpException("Unable create user", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -62,7 +63,7 @@ export class UsersController {
                 throw new HttpException("Wrong username and password, try again", HttpStatus.FORBIDDEN);
             }
 
-            const token = this.jwtService.getToken(user);
+            const token = await this.jwtService.getToken(user);
 
             return {
                 code: 1,
