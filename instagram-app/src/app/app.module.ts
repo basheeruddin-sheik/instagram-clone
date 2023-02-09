@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppCommonsModule } from './app-commons/app-commons.module';
 import { MedexUtilitiesModule } from './medex-utilities/medex-utilities.module';
 import { AuthModule } from './auth/auth.module';
+import { InstagramModule } from './instagram/instagram.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     AppCommonsModule,
     MedexUtilitiesModule,
-    AuthModule
+    AuthModule,
+    InstagramModule
   ],
   providers: [],
   bootstrap: [AppComponent]

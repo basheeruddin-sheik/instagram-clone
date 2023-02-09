@@ -11,15 +11,8 @@ const routes: Routes = [
     loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
   },
   {
-    path: "",
-    canActivate: [MedeAuthGuard],
-    component: DashboardComponent,
-    children: [
-      {
-        path: "",
-        loadChildren: () => import("./iam/manage-iam.module").then(m => m.ManageIamModule)
-      }
-    ]
+    path: "instagram",
+    loadChildren: () => import("./instagram/instagram.module").then(m => m.InstagramModule)
   }
 ];
 
