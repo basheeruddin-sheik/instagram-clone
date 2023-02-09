@@ -26,6 +26,20 @@ export class UsersController {
         }
     }
 
+    @Post("check/token")
+    async checkToken(@Body("token") token: string) {
+        try {
+            const isValid = await this.jwtService.decodeToken(token);
+            return {
+                code: 1,
+                isValid
+            }
+        } catch (error) {
+            console.log(error)
+            throw new HttpException("Unable create user", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @Post("create")
     async createUser(@Body() user: User) {
         try {
@@ -65,9 +79,14 @@ export class UsersController {
 
             const token = await this.jwtService.getToken(user);
 
+            delete user.metaInfo;
+            delete user.password;
             return {
                 code: 1,
-                token
+                auth: {
+                    token,
+                    user
+                }
             }
         } catch (e) {
             if (e.response && e.response.data)

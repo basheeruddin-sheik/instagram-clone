@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MedexMaterialModule } from './app-ui.module';
 import { HttpClientModule } from '@angular/common/http';
-import { AppCommonsModule } from './app-commons/app-commons.module';
 import { MedexUtilitiesModule } from './medex-utilities/medex-utilities.module';
 import { AuthModule } from './auth/auth.module';
 import { InstagramModule } from './instagram/instagram.module';
@@ -20,7 +19,6 @@ import { InstagramModule } from './instagram/instagram.module';
     BrowserAnimationsModule,
     MedexMaterialModule,
     HttpClientModule,
-    AppCommonsModule,
     MedexUtilitiesModule,
     AuthModule,
     InstagramModule

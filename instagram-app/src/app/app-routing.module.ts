@@ -1,17 +1,17 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './app-commons/dashboard/dashboard.component';
-import { MedeAuthGuard } from './mede-auth/mede-auth.guard';
-import { InterceptorService } from './mede-auth/mede-auth.interceptor';
+import { MedeAuthGuard } from './auth/mede-auth.guard';
+import { InterceptorService } from './auth/mede-auth.interceptor';
 
 const routes: Routes = [
   {
-    path: "",
+    path: "auth",
     loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
   },
   {
-    path: "instagram",
+    path: "",
+    canActivate: [MedeAuthGuard],
     loadChildren: () => import("./instagram/instagram.module").then(m => m.InstagramModule)
   }
 ];

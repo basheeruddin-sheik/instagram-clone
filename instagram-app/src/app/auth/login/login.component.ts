@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/medex-services/users.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,9 @@ export class LoginComponent {
 
   constructor(
     private snackBar: MatSnackBar,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   logInFormGroup = new FormGroup({
@@ -42,10 +46,15 @@ export class LoginComponent {
       body.username = this.logInFormGroup.get("emailOrMobileOrUsername")?.value;
     }
 
-    console.log(body)
-
     this.usersService.login(body).subscribe((res: any) => {
-      console.log("asdfAasdf", res)
+      this.authService.setToken(res?.token);
+      this.authService.setUsername(res?.user?.username);
+      // if (this.authService.checkToken()) {
+      //   this.router.navigateByUrl('/');
+      // } else {
+      //   this.router.navigateByUrl('/login');
+      // }
+      this.router.navigateByUrl('/');
     }, (errRes: any) => {
       console.log("error", errRes)
       if(errRes?.error?.statusCode === 403) {

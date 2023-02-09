@@ -26,6 +26,14 @@ export class UsersService {
   }
 
   login(credentials: User) {
-    return this.http.post(environment.url + environment.users.login, credentials)
+    return this.http.post(environment.url + environment.users.login, credentials).pipe(
+      map((res: any) => res.auth)
+    )
+  }
+
+  checkToken(token: string) {
+    return this.http.post(environment.url + environment.users.checkToken, {token}).pipe(
+      map((res: any) => res)
+    )
   }
 }

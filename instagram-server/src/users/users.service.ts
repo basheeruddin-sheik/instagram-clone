@@ -16,7 +16,11 @@ export class UsersService {
         if (username) filters["username"] = username;
         if (email) filters["email"] = email;
         if (mobile) filters["mobile"] = mobile
-        return await this.mongoService.getUsersCollection().findOne(filters);
+        return await this.mongoService.getUsersCollection().findOne(filters, {
+            projection: {
+                _id: 0
+            }
+        });
     }
 
     async createUser(user: User) {

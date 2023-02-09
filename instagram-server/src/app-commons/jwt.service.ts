@@ -67,9 +67,15 @@ export class AuthJwtService {
     //     });
     // }
 
-    // decodeToken(token) {
-    //     return jwt.decode(token);
-    // }
+    decodeToken(token) {
+        return jwt.verify(token, process.env.JWT_SECRET, (err: Error, decoded: any) => {
+			if (err) {
+				return false;
+			} else {
+				return decoded;
+			}
+		});
+    }
 
     async getToken(user: User) {
         return await jwt.sign({
