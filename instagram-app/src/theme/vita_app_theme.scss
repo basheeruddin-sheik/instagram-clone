@@ -1,0 +1,81 @@
+@import '@angular/material/theming';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:wght@400;600');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$vita-typography: mat-typography-config(
+  $font-family: 'Open Sans',
+  $display-4:     mat-typography-level(96px, 112px, 300, 'DM Sans'),
+  $display-3:     mat-typography-level(56px, 56px, 400, 'DM Sans'),
+  $display-2:     mat-typography-level(48px, 48px, 400, 'DM Sans'),
+  $display-1:     mat-typography-level(34px, 40px, 400, 'DM Sans'),
+  $headline:      mat-typography-level(24px, 32px, 400, 'DM Sans'),
+  $title:         mat-typography-level(20px, 32px, 500, 'DM Sans'),
+  $subheading-2:  mat-typography-level(16px, 28px, 700, 'DM Sans'),
+
+  $subheading-1:  mat-typography-level(15px, 24px, 400, 'Open Sans'),
+  $body-1:        mat-typography-level(14px, 20px, 400, 'Open Sans'),
+  $body-2:        mat-typography-level(14px, 24px, 600, 'Open Sans'),
+  $caption:       mat-typography-level(12px, 20px, 400, 'Open Sans'),
+  $button:        mat-typography-level(14px, 14px, 500, 'Open Sans'),
+    // Line-height must be unit-less fraction of the font-size.
+  $input:         mat-typography-level(inherit, 1.125, 400)
+);
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core($vita-typography);
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$medex-palette: (
+    50 : #e3efff,
+    100 : #b9d7ff,
+    200 : #8abcff,
+    300 : #5ba1ff,
+    400 : #378dff,
+    500 : #1479ff,
+    600 : #1271ff,
+    700 : #0e66ff,
+    800 : #0b5cff,
+    900 : #0649ff,
+    A100 : #ffffff,
+    A200 : #f3f6ff,
+    A400 : #c0ceff,
+    A700 : #a7baff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$medex-primary: mat-palette($medex-palette);
+$medex-accent:  mat-palette($medex-palette);
+$medex-warn:    mat-palette($mat-red);
+
+
+// Create the theme object (a Sass map containing all of the palettes).
+$vita-care-theme: mat-light-theme($medex-primary, $medex-accent, $medex-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($vita-care-theme);

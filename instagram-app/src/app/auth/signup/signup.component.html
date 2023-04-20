@@ -1,0 +1,110 @@
+<main class="bg-gray-50 h-full">
+    <div class="page">
+        <div class="header">
+            <div class="logo"></div>
+            <p class="message">Sign up to see photos and videos from your friends.</p>
+            <button><i class="fab fa-facebook-square"></i> Log in with Google</button>
+            <div>
+                <hr>
+                <p>OR</p>
+                <hr>
+            </div>
+        </div>
+        <div class="container">
+            <form [formGroup]="signUpFormGroup">
+                <div class="input-wrapper w-full">
+                    <input type="text" formControlName="emailOrMobile" placeholder="Mobile Number or Email">
+                    <label *ngIf="isEmailOrMobileValid && signUpFormGroup.get('emailOrMobile')?.value?.length"
+                        class="input-icon-valid">
+                        <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
+                    </label>
+                    <label *ngIf="!isEmailOrMobileValid && signUpFormGroup.get('emailOrMobile')?.value?.length"
+                        class="input-icon-invalid cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="right">
+                        <div class="group relative inline-block">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
+                                alt="" height="25px" width="25px">
+                            <div
+                                class="border-light text-body-color absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded border bg-white py-[6px] px-4 text-sm font-semibold opacity-0 group-hover:opacity-100">
+                                <span
+                                    class="border-light absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm border-b border-l bg-white"></span>
+                                Tooltip Text
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="input-wrapper w-full">
+                    <input type="text" formControlName="fullName" placeholder="Full Name">
+                    <label *ngIf="isFullNameValid && signUpFormGroup.get('fullName')?.value?.length"
+                        class="input-icon-valid">
+                        <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
+                    </label>
+                    <label *ngIf="!isFullNameValid && signUpFormGroup.get('fullName')?.value?.length"
+                        class="input-icon-invalid cursor-pointer">
+                        <div class="group relative inline-block">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
+                                alt="" height="25px" width="25px">
+                            <div
+                                class="border-light text-body-color absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded border bg-white py-[6px] px-4 text-sm font-semibold opacity-0 group-hover:opacity-100">
+                                <span
+                                    class="border-light absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm border-b border-l bg-white"></span>
+                                Tooltip Text
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="input-wrapper w-full">
+                    <input type="text" formControlName="username" placeholder="Username">
+                    <label *ngIf="isUsernameValid && signUpFormGroup.get('username')?.value?.length"
+                        class="input-icon-valid cursor-pointer">
+                        <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
+                    </label>
+                    <label *ngIf="!isUsernameValid && signUpFormGroup.get('username')?.value?.length"
+                        class="input-icon-invalid">
+                        <div class="group relative inline-block">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
+                                alt="" height="25px" width="25px">
+                            <div
+                                class="border-light text-body-color absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded border bg-white py-[6px] px-4 text-sm font-semibold opacity-0 group-hover:opacity-100">
+                                <span
+                                    class="border-light absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm border-b border-l bg-white"></span>
+                                Tooltip Text
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="input-wrapper w-full">
+                    <input type="password" formControlName="password" placeholder="Password">
+                    <label *ngIf="isPasswordValid && signUpFormGroup.get('password')?.value?.length"
+                        class="input-icon-valid">
+                        <img src="/assets/logos/circle_correct_mark_success_tick_icon.png" alt="">
+                    </label>
+                    <label *ngIf="!isPasswordValid && signUpFormGroup.get('password')?.value?.length"
+                        class="input-icon-invalid cursor-pointer">
+                        <div class="group relative inline-block">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/293/499/small/exclamation-mark-symbol-red-warning-dangerous-icon-on-white-background-free-vector.jpg"
+                                alt="" height="25px" width="25px">
+                            <div
+                                class="border-light text-body-color absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 whitespace-nowrap rounded border bg-white py-[6px] px-4 text-sm font-semibold opacity-0 group-hover:opacity-100">
+                                <span
+                                    class="border-light absolute -left-1 top-1/2 -z-10 h-2 w-2 -translate-y-1/2 rotate-45 rounded-r-sm border-b border-l bg-white"></span>
+                                Tooltip Text
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <button (click)="create()">Sign up</button>
+            </form>
+
+            <ul>
+                <li>By signing up, you agree to our </li>
+                <li><a> Terms</a></li>
+                <li><a> Data Policy</a></li>
+                <li> and</li>
+                <li><a> Cookies Policy</a>.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="option">
+        <p>Have an account? <a [routerLink]="['']">Log in</a></p>
+    </div>
+</main>
