@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { InstagramRoutingModule } from './instagram-routing.module';
 import { AppShellComponent } from './app-shell/app-shell.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 
 @NgModule({
   declarations: [
-    AppShellComponent
+    AppShellComponent,
+    CreatePostComponent
   ],
   imports: [
     CommonModule,
